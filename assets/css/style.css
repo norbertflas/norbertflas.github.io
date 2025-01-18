@@ -1,0 +1,17 @@
+:root {
+    --primary-color: #2563eb;
+    --secondary-color: #7c3aed;
+    --background-color: #ffffff;
+    --text-color: #1f2937;
+}
+
+/* ... istniejący kod ... */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+} 

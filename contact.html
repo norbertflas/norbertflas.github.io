@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt - Norbert Flas</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/dark-mode.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+</head>
+<body class="light-mode">
+    <nav class="navbar">
+        <div class="nav-content">
+            <div class="logo">NF</div>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">O mnie</a>
+                <a href="projects.html">Projekty</a>
+                <a href="contact.html" class="active">Kontakt</a>
+                <button id="theme-toggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="contact-section" data-aos="fade-up">
+        <h1>Kontakt</h1>
+        <div class="contact-content">
+            <form id="contact-form">
+                <div class="form-group">
+                    <label for="name">Imię i nazwisko</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Wiadomość</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Wyślij</button>
+            </form>
+        </div>
+    </main>
+
+    <footer>
+        <div class="social-links">
+            <a href="https://github.com/norbertflas" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="https://linkedin.com/in/[twój-profil]" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:twój.email@example.com"><i class="fas fa-envelope"></i></a>
+        </div>
+        <p>&copy; 2025 Norbert Flas. Wszelkie prawa zastrzeżone.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dark-mode.js"></script>
+</body>
+</html> 
