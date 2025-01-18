@@ -272,29 +272,49 @@ function initAnimations() {
 
 // Obsługa formularza kontaktowego
 function initContactForm() {
-    const form = document.querySelector('#contact form');
-    
+    const form = document.getElementById('contactForm');
+    const toast = document.getElementById('toast');
+
     form.addEventListener('submit', async (e) => {
         e.preventDefault();
-        
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.innerHTML;
-        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Wysyłanie...';
-        submitBtn.disabled = true;
+
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData);
+
+        // Tutaj możesz dodać właściwą logikę wysyłania emaila
+        // Na przykład przez API lub serwer
 
         try {
-            // Tutaj dodaj logikę wysyłania formularza
-            await new Promise(resolve => setTimeout(resolve, 1000)); // Symulacja wysyłania
+            // Symulacja wysyłania (zastąp własną logiką)
+            await new Promise(resolve => setTimeout(resolve, 1000));
             
-            alert('Wiadomość została wysłana!');
+            // Pokaż powiadomienie
+            showToast('Wiadomość została wysłana pomyślnie!', 'success');
+            
+            // Wyczyść formularz
             form.reset();
         } catch (error) {
-            alert('Wystąpił błąd podczas wysyłania wiadomości.');
-        } finally {
-            submitBtn.innerHTML = originalText;
-            submitBtn.disabled = false;
+            showToast('Wystąpił błąd podczas wysyłania wiadomości.', 'error');
         }
     });
+}
+
+function showToast(message, type = 'success') {
+    const toast = document.getElementById('toast');
+    toast.textContent = message;
+    toast.className = `toast show ${type}`;
+    
+    // Dodaj odpowiedni kolor tła
+    if (type === 'success') {
+        toast.style.backgroundColor = 'rgba(16, 185, 129, 0.9)'; // zielony
+    } else {
+        toast.style.backgroundColor = 'rgba(239, 68, 68, 0.9)'; // czerwony
+    }
+
+    // Ukryj toast po 3 sekundach
+    setTimeout(() => {
+        toast.classList.remove('show');
+    }, 3000);
 }
 
 // Płynne przewijanie

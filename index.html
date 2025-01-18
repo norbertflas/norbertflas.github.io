@@ -251,12 +251,50 @@
     <!-- Projects Section -->
     <section id="projects" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-center text-white mb-8">Projekty</h2>
-            <div class="flex justify-center gap-4 mb-12">
-                <!-- Project filters will be loaded dynamically -->
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Projects will be loaded dynamically -->
+            <h2 class="text-4xl font-bold text-white mb-12 flex items-center gap-3">
+                <i class="fas fa-code-branch"></i>
+                <span data-translate="projects.title">Projekty</span>
+            </h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Skyforce Skydiving Project -->
+                <div class="project-card">
+                    <div class="mb-4">
+                        <h3 class="text-2xl font-bold text-primary mb-2">Skyforce Skydiving</h3>
+                        <p class="text-gray-300 text-sm mb-2">marzec 2020 - maj 2020</p>
+                        <p class="text-gray-300 italic mb-4">Zespół Szkół Elektryczno-Elektronicznych</p>
+                    </div>
+                    
+                    <div class="space-y-4">
+                        <p class="text-gray-200">
+                            Gra mobilna na platformę Android stworzona jako projekt zespołowy.
+                        </p>
+                        
+                        <div class="space-y-2">
+                            <h4 class="font-semibold text-primary">Główne osiągnięcia:</h4>
+                            <ul class="list-disc list-inside text-gray-200 space-y-2">
+                                <li>Pełnienie roli Kierownika Projektu i Współtwórcy</li>
+                                <li>Tworzenie unikalnych postaci i animacji w Adobe Photoshop</li>
+                                <li>Programowanie w C# z wykorzystaniem Unity</li>
+                                <li>Zarządzanie komunikacją z klientem</li>
+                                <li>Monitoring i koordynacja postępów prac</li>
+                            </ul>
+                        </div>
+
+                        <div class="flex flex-wrap gap-2 mt-4">
+                            <span class="tech-tag">C#</span>
+                            <span class="tech-tag">Unity</span>
+                            <span class="tech-tag">Android</span>
+                            <span class="tech-tag">Adobe Photoshop</span>
+                            <span class="tech-tag">Project Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GitHub Projects Container -->
+                <div id="github-projects" class="grid gap-8">
+                    <!-- GitHub projects will be loaded here dynamically -->
+                </div>
             </div>
         </div>
     </section>
@@ -273,27 +311,149 @@
 
     <!-- Contact Section -->
     <section id="contact" class="py-20">
-        <div class="container mx-auto px-4 max-w-md">
-            <h2 class="text-4xl font-bold text-center text-white mb-12">Kontakt</h2>
-            <form class="space-y-6">
-                <div>
-                    <input type="text" placeholder="Imię i nazwisko" required
-                        class="w-full p-3 rounded-md bg-white/20 border-none text-white placeholder:text-gray-300">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-white mb-12 text-center" data-translate="contact.title">Kontakt</h2>
+            <div class="max-w-2xl mx-auto">
+                <form class="contact-form space-y-6" id="contactForm">
+                    <div>
+                        <input 
+                            type="text" 
+                            name="name" 
+                            placeholder="Imię i nazwisko" 
+                            required 
+                            data-translate-placeholder="contact.name.placeholder"
+                        >
+                    </div>
+                    <div>
+                        <input 
+                            type="email" 
+                            name="email" 
+                            placeholder="Email" 
+                            required 
+                            data-translate-placeholder="contact.email.placeholder"
+                        >
+                    </div>
+                    <div>
+                        <textarea 
+                            name="message" 
+                            placeholder="Wiadomość" 
+                            required 
+                            rows="5"
+                            data-translate-placeholder="contact.message.placeholder"
+                        ></textarea>
+                    </div>
+                    <button 
+                        type="submit" 
+                        class="w-full py-3 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors"
+                        data-translate="contact.submit"
+                    >
+                        Wyślij wiadomość
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div id="toast" class="toast" role="alert"></div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="experience-container bg-white/10 backdrop-blur-md rounded-3xl p-8">
+                <h2 class="text-4xl font-bold text-white mb-12 flex items-center gap-3">
+                    <i class="fas fa-briefcase text-4xl"></i>
+                    Doświadczenie
+                </h2>
+
+                <div class="space-y-12">
+                    <!-- Każde doświadczenie ma pionową linię po lewej stronie -->
+                    <div class="experience-item">
+                        <h3 class="text-3xl font-bold text-white mb-2">Advertising Specialist</h3>
+                        <p class="text-xl text-gray-300 mb-2">Gonito</p>
+                        <p class="text-lg text-gray-400 mb-4">2024 - Present</p>
+                        <p class="text-xl text-gray-200">
+                            Zarządzanie kontami reklamowymi klientów na platformach: Amazon, Ebay, Allegro, CDiscount, Kaufland, Emag
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="text-3xl font-bold text-white mb-2">Junior Advertising Specialist</h3>
+                        <p class="text-xl text-gray-300 mb-2">Gonito</p>
+                        <p class="text-lg text-gray-400 mb-4">2023 - 2024</p>
+                        <p class="text-xl text-gray-200">
+                            Optymalizacja kampanii PPC oraz zarządzanie kontami reklamowymi na Amazon
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="text-3xl font-bold text-white mb-2">Chief Executive Officer</h3>
+                        <p class="text-xl text-gray-300 mb-2">Xrol</p>
+                        <p class="text-lg text-gray-400 mb-4">2020 - 2023</p>
+                        <p class="text-xl text-gray-200">
+                            Zarządzanie całością operacji e-commerce, w tym relacjami B2B, finansami i analizą sprzedaży
+                        </p>
+                    </div>
+
+                    <div class="experience-item">
+                        <h3 class="text-3xl font-bold text-white mb-2">Kierownik produkcji</h3>
+                        <p class="text-xl text-gray-300 mb-2">Fabryka osłon okiennych</p>
+                        <p class="text-lg text-gray-400 mb-4">2021 - 2022</p>
+                        <p class="text-xl text-gray-200">
+                            Nadzór nad operacjami produkcyjnymi i zarządzanie zespołem
+                        </p>
+                    </div>
                 </div>
-                <div>
-                    <input type="email" placeholder="Email" required
-                        class="w-full p-3 rounded-md bg-white/20 border-none text-white placeholder:text-gray-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- Interests Section -->
+    <section id="interests" class="py-20">
+        <div class="container mx-auto px-4">
+            <div class="interests-container bg-white/10 backdrop-blur-md rounded-3xl p-8">
+                <h2 class="text-4xl font-bold text-white mb-12 flex items-center gap-3">
+                    <i class="fas fa-heart"></i>
+                    Zainteresowania
+                </h2>
+
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <!-- Motoryzacja & F1 -->
+                    <div class="interest-item">
+                        <i class="fas fa-car-racing text-4xl mb-3"></i>
+                        <h3 class="text-xl font-semibold">Motoryzacja & Formuła 1</h3>
+                    </div>
+
+                    <!-- Biznes -->
+                    <div class="interest-item">
+                        <i class="fas fa-chart-line text-4xl mb-3"></i>
+                        <h3 class="text-xl font-semibold">Biznes</h3>
+                    </div>
+
+                    <!-- Nowe Technologie & AI -->
+                    <div class="interest-item">
+                        <i class="fas fa-microchip text-4xl mb-3"></i>
+                        <h3 class="text-xl font-semibold">Nowe Technologie & AI</h3>
+                    </div>
+
+                    <!-- Sport -->
+                    <div class="interest-item">
+                        <i class="fas fa-dumbbell text-4xl mb-3"></i>
+                        <h3 class="text-xl font-semibold">Aktywność fizyczna</h3>
+                        <p class="text-sm text-gray-300">Padel • Siłownia • Piłka nożna • Bieganie</p>
+                    </div>
+
+                    <!-- Druk 3D -->
+                    <div class="interest-item">
+                        <i class="fas fa-cube text-4xl mb-3"></i>
+                        <h3 class="text-xl font-semibold">Druk 3D</h3>
+                    </div>
+
+                    <!-- Kryptowaluty -->
+                    <div class="interest-item">
+                        <i class="fab fa-bitcoin text-4xl mb-3"></i>
+                        <h3 class="text-xl font-semibold">Kryptowaluty</h3>
+                    </div>
                 </div>
-                <div>
-                    <textarea placeholder="Wiadomość" required
-                        class="w-full p-3 rounded-md bg-white/20 border-none text-white placeholder:text-gray-300 min-h-[150px]"></textarea>
-                </div>
-                <button type="submit"
-                    class="w-full p-3 bg-primary hover:bg-primary/90 text-white rounded-md flex items-center justify-center gap-2">
-                    <i class="fas fa-paper-plane"></i>
-                    Wyślij wiadomość
-                </button>
-            </form>
+            </div>
         </div>
     </section>
 
