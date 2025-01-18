@@ -131,90 +131,23 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="py-20 bg-white/10 backdrop-blur-md">
+    <section id="skills" class="py-20">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-white mb-12 flex items-center gap-3" data-translate="skills.dev.title">
-                Development & AI
+            <h2 class="text-4xl font-bold text-white mb-12 flex items-center gap-3">
+                <i class="fas fa-code"></i>
+                Umiejętności
             </h2>
-            
-            <!-- Development & AI -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-white mb-6">Development & AI</h3>
-                <div class="flex flex-wrap gap-4">
-                    <span class="skill-pill">Python</span>
-                    <span class="skill-pill">JavaScript</span>
-                    <span class="skill-pill">React</span>
-                    <span class="skill-pill">Next.js</span>
-                    <span class="skill-pill">Node.js</span>
-                    <span class="skill-pill">TensorFlow</span>
-                    <span class="skill-pill">PyTorch</span>
-                    <span class="skill-pill">Machine Learning</span>
-                    <span class="skill-pill">Docker</span>
-                    <span class="skill-pill">Git</span>
-                </div>
-            </div>
-
-            <!-- AI & Blockchain -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-white mb-6">AI & Blockchain</h3>
-                <div class="flex flex-wrap gap-4">
-                    <span class="skill-pill">ChatGPT</span>
-                    <span class="skill-pill">Claude</span>
-                    <span class="skill-pill">Gemini</span>
-                    <span class="skill-pill">DALL-E</span>
-                    <span class="skill-pill">MidJourney</span>
-                    <span class="skill-pill">CoinMarketCap</span>
-                    <span class="skill-pill">TradingView</span>
-                    <span class="skill-pill">GlassNode</span>
-                    <span class="skill-pill">CoinStats</span>
-                </div>
-            </div>
-
-            <!-- E-commerce & Marketing -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-white mb-6">E-commerce & Marketing</h3>
-                <div class="flex flex-wrap gap-4">
-                    <span class="skill-pill">Baselinker</span>
-                    <span class="skill-pill">Marketplace Ads</span>
-                    <span class="skill-pill">Amazon ADS</span>
-                    <span class="skill-pill">Digital Marketing</span>
-                    <span class="skill-pill">Web Analytics</span>
-                    <span class="skill-pill">Helium10</span>
-                    <span class="skill-pill">CRM</span>
-                    <span class="skill-pill">B2C</span>
-                    <span class="skill-pill">Analiza konkurencji</span>
-                    <span class="skill-pill">Kontrola Budżetu</span>
-                </div>
-            </div>
-
-            <!-- Tools & Automation -->
-            <div class="mb-12">
-                <h3 class="text-2xl font-semibold text-white mb-6">Tools & Automation</h3>
-                <div class="flex flex-wrap gap-4">
-                    <span class="skill-pill">Google Workspace</span>
-                    <span class="skill-pill">Excel</span>
-                    <span class="skill-pill">Replit</span>
-                    <span class="skill-pill">bolt.new</span>
-                    <span class="skill-pill">Lovable.dev</span>
-                    <span class="skill-pill">No-code Tools</span>
-                </div>
-            </div>
-
-            <!-- Soft Skills -->
-            <div>
-                <h3 class="text-2xl font-semibold text-white mb-6" data-translate="skills.soft.title">
-                    Soft Skills
-                </h3>
-                <div class="flex flex-wrap gap-4">
-                    <span class="skill-pill" data-translate="skills.soft.creativity">Kreatywność</span>
-                    <span class="skill-pill" data-translate="skills.soft.teamwork">Praca zespołowa</span>
-                    <span class="skill-pill" data-translate="skills.soft.independence">Samodzielność</span>
-                    <span class="skill-pill" data-translate="skills.soft.proactivity">Proaktywność</span>
-                    <span class="skill-pill" data-translate="skills.soft.communication">Komunikacja</span>
-                    <span class="skill-pill" data-translate="skills.soft.diligence">Skrupulatność</span>
-                    <span class="skill-pill" data-translate="skills.soft.management">Zarządzanie</span>
-                    <span class="skill-pill" data-translate="skills.soft.english">Angielski (B2)</span>
-                </div>
+            <div class="flex flex-wrap gap-4">
+                <span class="skill-bubble">Python</span>
+                <span class="skill-bubble">JavaScript</span>
+                <span class="skill-bubble">React</span>
+                <span class="skill-bubble">Next.js</span>
+                <span class="skill-bubble">Node.js</span>
+                <span class="skill-bubble">TensorFlow</span>
+                <span class="skill-bubble">PyTorch</span>
+                <span class="skill-bubble">Machine Learning</span>
+                <span class="skill-bubble">Docker</span>
+                <span class="skill-bubble">Git</span>
             </div>
         </div>
     </section>
@@ -280,50 +213,44 @@
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20">
+    <!-- Contact Section - na samym dole -->
+    <section id="contact" class="py-20 bg-gradient-to-b from-transparent to-gray-900">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl font-bold text-white mb-12 text-center" data-translate="contact.title">Kontakt</h2>
-            <div class="max-w-2xl mx-auto">
-                <form class="contact-form space-y-6" id="contactForm">
-                    <div>
+            <div class="contact-card max-w-4xl mx-auto">
+                <h2 class="text-4xl font-bold text-white mb-8 flex items-center gap-3">
+                    <i class="fas fa-envelope"></i>
+                    Kontakt
+                </h2>
+                <form class="contact-form space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <input 
                             type="text" 
-                            name="name" 
                             placeholder="Imię i nazwisko" 
-                            required 
-                            data-translate-placeholder="contact.name.placeholder"
+                            class="contact-input"
+                            required
                         >
-                    </div>
-                    <div>
                         <input 
                             type="email" 
-                            name="email" 
                             placeholder="Email" 
-                            required 
-                            data-translate-placeholder="contact.email.placeholder"
+                            class="contact-input"
+                            required
                         >
                     </div>
-                    <div>
-                        <textarea 
-                            name="message" 
-                            placeholder="Wiadomość" 
-                            required 
-                            rows="5"
-                            data-translate-placeholder="contact.message.placeholder"
-                        ></textarea>
-                    </div>
+                    <textarea 
+                        placeholder="Wiadomość" 
+                        class="contact-input" 
+                        rows="5"
+                        required
+                    ></textarea>
                     <button 
                         type="submit" 
                         class="w-full py-3 px-6 bg-primary hover:bg-primary/90 text-white rounded-lg transition-colors"
-                        data-translate="contact.submit"
                     >
                         Wyślij wiadomość
                     </button>
                 </form>
             </div>
         </div>
-        <div id="toast" class="toast" role="alert"></div>
     </section>
 
     <!-- Experience Section -->
@@ -380,69 +307,45 @@
     <!-- Interests Section -->
     <section id="interests" class="py-20">
         <div class="container mx-auto px-4">
-            <div class="interests-container bg-white/10 backdrop-blur-md rounded-3xl p-8">
-                <h2 class="text-4xl font-bold text-white mb-12 flex items-center gap-3">
-                    <i class="fas fa-heart"></i>
-                    Zainteresowania
-                </h2>
-
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
-                    <!-- Motoryzacja & F1 -->
-                    <div class="interest-item">
-                        <i class="fas fa-car-racing text-4xl mb-3"></i>
-                        <h3 class="text-xl font-semibold">Motoryzacja & Formuła 1</h3>
-                    </div>
-
-                    <!-- Biznes -->
-                    <div class="interest-item">
-                        <i class="fas fa-chart-line text-4xl mb-3"></i>
-                        <h3 class="text-xl font-semibold">Biznes</h3>
-                    </div>
-
-                    <!-- Nowe Technologie & AI -->
-                    <div class="interest-item">
-                        <i class="fas fa-microchip text-4xl mb-3"></i>
-                        <h3 class="text-xl font-semibold">Nowe Technologie & AI</h3>
-                    </div>
-
-                    <!-- Sport -->
-                    <div class="interest-item">
-                        <i class="fas fa-dumbbell text-4xl mb-3"></i>
-                        <h3 class="text-xl font-semibold">Aktywność fizyczna</h3>
-                        <p class="text-sm text-gray-300">Padel • Siłownia • Piłka nożna • Bieganie</p>
-                    </div>
-
-                    <!-- Druk 3D -->
-                    <div class="interest-item">
-                        <i class="fas fa-cube text-4xl mb-3"></i>
-                        <h3 class="text-xl font-semibold">Druk 3D</h3>
-                    </div>
-
-                    <!-- Kryptowaluty -->
-                    <div class="interest-item">
-                        <i class="fab fa-bitcoin text-4xl mb-3"></i>
-                        <h3 class="text-xl font-semibold">Kryptowaluty</h3>
-                    </div>
+            <h2 class="text-4xl font-bold text-white mb-12 flex items-center gap-3">
+                <i class="fas fa-heart"></i>
+                Zainteresowania
+            </h2>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                <div class="interest-card">
+                    <i class="fas fa-coffee text-4xl mb-4 text-purple-400"></i>
+                    <h3 class="text-xl">Coffee Brewing</h3>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-music text-4xl mb-4 text-purple-400"></i>
+                    <h3 class="text-xl">Music Production</h3>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-camera text-4xl mb-4 text-purple-400"></i>
+                    <h3 class="text-xl">Photography</h3>
+                </div>
+                <div class="interest-card">
+                    <i class="fas fa-gamepad text-4xl mb-4 text-purple-400"></i>
+                    <h3 class="text-xl">Gaming</h3>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="py-8 text-center text-white">
+    <footer class="py-6 bg-gray-900">
         <div class="container mx-auto px-4">
-            <div class="flex justify-center gap-6 mb-4">
-                <a href="https://github.com/norbertflas" target="_blank" class="hover:text-primary transition-colors">
-                    <i class="fab fa-github text-2xl"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/norbertflas/" target="_blank" class="hover:text-primary transition-colors">
-                    <i class="fab fa-linkedin text-2xl"></i>
-                </a>
-                <a href="mailto:norbertflas99@gmail.com" class="hover:text-primary transition-colors">
-                    <i class="fas fa-envelope text-2xl"></i>
-                </a>
+            <div class="flex justify-between items-center">
+                <p class="text-gray-400">© 2024 Wszystkie prawa zastrzeżone</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
-            <p>&copy; 2024 Norbert Flas. Wszelkie prawa zastrzeżone.</p>
         </div>
     </footer>
 
