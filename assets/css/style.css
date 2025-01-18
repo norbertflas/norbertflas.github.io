@@ -553,3 +553,70 @@ h3.text-2xl::before {
         font-size: 0.875rem;
     }
 } 
+
+/* About section styles */
+.about-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 1.5rem;
+    padding: 2.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: transform 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Skill pills */
+.skill-pill {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 9999px;
+    color: white;
+    font-size: 0.875rem;
+    transition: all 0.3s ease;
+}
+
+.skill-pill:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
+}
+
+/* Interest items */
+.interest-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.interest-item i {
+    color: var(--primary);
+    transition: transform 0.3s ease;
+}
+
+.interest-item:hover i {
+    transform: scale(1.1);
+}
+
+/* Experience items */
+.experience-item {
+    position: relative;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--primary);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .about-card {
+        padding: 1.5rem;
+    }
+
+    .interest-item {
+        font-size: 0.875rem;
+    }
+} 
