@@ -3,48 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Norbert Flas - Ekspert AI</title>
-    <!-- Najpierw zewnętrzne zasoby -->
+    <title>Norbert Flas - AI Expert</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!-- Potem nasze lokalne pliki CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-    <nav class="navbar">
-        <div class="nav-content">
-            <div class="logo">NF</div>
-            <div class="nav-links">
-                <a href="index.html" class="active">Home</a>
-                <a href="about.html">O mnie</a>
-                <a href="projects.html">Projekty</a>
-                <a href="contact.html">Kontakt</a>
+<body class="min-h-screen bg-gradient-to-br from-blue-500 to-purple-600 dark:from-blue-900 dark:to-purple-900">
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex items-center justify-between">
+                <a href="#" class="text-2xl font-bold text-primary">NF</a>
+                <div class="flex items-center gap-6">
+                    <a href="#home" class="hover:text-primary transition-colors">Home</a>
+                    <a href="#about" class="hover:text-primary transition-colors">O mnie</a>
+                    <a href="#projects" class="hover:text-primary transition-colors">Projekty</a>
+                    <a href="#blog" class="hover:text-primary transition-colors">Blog</a>
+                    <a href="#contact" class="hover:text-primary transition-colors">Kontakt</a>
+                    <button id="language-toggle" class="p-2">
+                        <i class="fas fa-globe"></i>
+                    </button>
+                    <button id="theme-toggle" class="p-2">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </nav>
 
-    <header class="hero">
-        <h1>Norbert Flas</h1>
-        <h2>Ekspert AI & Developer</h2>
-        <p>Transformuję pomysły w inteligentne rozwiązania</p>
-    </header>
-
-    <section class="featured-projects">
-        <h2>Projekty</h2>
-        <div class="project-grid">
-            <!-- Projekty będą dodawane dynamicznie -->
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center justify-center text-center text-white">
+        <div class="container mx-auto px-4">
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 animate-fadeInUp">
+                Norbert Flas
+            </h1>
+            <h2 class="text-3xl md:text-4xl font-semibold mb-4 animate-fadeInUp">
+                Ekspert AI & Developer
+            </h2>
+            <p class="text-xl md:text-2xl text-gray-200 animate-fadeInUp">
+                Transformuję pomysły w inteligentne rozwiązania
+            </p>
         </div>
     </section>
 
-    <footer>
-        <div class="social-links">
-            <a href="https://github.com/norbertflas" target="_blank"><i class="fab fa-github"></i></a>
-            <a href="https://linkedin.com/in/[twój-profil]" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:twój.email@example.com"><i class="fas fa-envelope"></i></a>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white/10 backdrop-blur-md">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">O mnie</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Experience Card -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fas fa-briefcase"></i>
+                        Doświadczenie
+                    </h3>
+                    <div class="space-y-4">
+                        <!-- Experience items will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Skills Card -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fas fa-code"></i>
+                        Umiejętności
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <!-- Skills will be loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Hobbies Card -->
+                <div class="card p-6">
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i class="fas fa-heart"></i>
+                        Zainteresowania
+                    </h3>
+                    <div class="grid grid-cols-2 gap-4">
+                        <!-- Hobbies will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
         </div>
-        <p>&copy; 2025 Norbert Flas. Wszelkie prawa zastrzeżone.</p>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-8">Projekty</h2>
+            <div class="flex justify-center gap-4 mb-12">
+                <!-- Project filters will be loaded dynamically -->
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Projects will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 bg-white/10 backdrop-blur-md">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Blog</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Blog posts will be loaded dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4 max-w-md">
+            <h2 class="text-4xl font-bold text-center text-white mb-12">Kontakt</h2>
+            <form class="space-y-6">
+                <div>
+                    <input type="text" placeholder="Imię i nazwisko" required
+                        class="w-full p-3 rounded-md bg-white/20 border-none text-white placeholder:text-gray-300">
+                </div>
+                <div>
+                    <input type="email" placeholder="Email" required
+                        class="w-full p-3 rounded-md bg-white/20 border-none text-white placeholder:text-gray-300">
+                </div>
+                <div>
+                    <textarea placeholder="Wiadomość" required
+                        class="w-full p-3 rounded-md bg-white/20 border-none text-white placeholder:text-gray-300 min-h-[150px]"></textarea>
+                </div>
+                <button type="submit"
+                    class="w-full p-3 bg-primary hover:bg-primary/90 text-white rounded-md flex items-center justify-center gap-2">
+                    <i class="fas fa-paper-plane"></i>
+                    Wyślij wiadomość
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center gap-6 mb-4">
+                <a href="https://github.com/norbertflas" target="_blank" class="hover:text-primary transition-colors">
+                    <i class="fab fa-github text-2xl"></i>
+                </a>
+                <a href="https://linkedin.com/in/[your-profile]" target="_blank" class="hover:text-primary transition-colors">
+                    <i class="fab fa-linkedin text-2xl"></i>
+                </a>
+                <a href="mailto:your.email@example.com" class="hover:text-primary transition-colors">
+                    <i class="fas fa-envelope text-2xl"></i>
+                </a>
+            </div>
+            <p>&copy; 2024 Norbert Flas. Wszelkie prawa zastrzeżone.</p>
+        </div>
     </footer>
 
-    <!-- Skrypty na końcu body -->
     <script src="./assets/js/main.js"></script>
 </body>
 </html> 
