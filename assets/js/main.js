@@ -16,16 +16,11 @@ async function loadProjects() {
         projects.forEach(project => {
             const projectCard = document.createElement('div');
             projectCard.className = 'project-card';
-            projectCard.setAttribute('data-aos', 'fade-up');
-            
             projectCard.innerHTML = `
                 <h3>${project.name}</h3>
                 <p>${project.description || 'Brak opisu'}</p>
-                <div class="project-links">
-                    <a href="${project.html_url}" target="_blank">Zobacz na GitHub</a>
-                </div>
+                <a href="${project.html_url}" target="_blank">Zobacz na GitHub</a>
             `;
-            
             projectGrid.appendChild(projectCard);
         });
     } catch (error) {
