@@ -64,7 +64,6 @@ window.useLanguage = useLanguage;
 // Inicjalizacja strony
 document.addEventListener('DOMContentLoaded', () => {
     initThemeToggle();
-    initLanguageToggle();
     loadProjects();
     initAnimations();
     initContactForm();
@@ -75,45 +74,50 @@ document.addEventListener('DOMContentLoaded', () => {
 function initThemeToggle() {
     const themeToggle = document.getElementById('theme-toggle');
     const icon = themeToggle.querySelector('i');
+    const body = document.body;
     
     // Sprawdź zapisany motyw
     const savedTheme = localStorage.getItem('theme') || 'light';
-    document.documentElement.setAttribute('data-theme', savedTheme);
+    body.classList.toggle('dark-mode', savedTheme === 'dark');
     updateThemeIcon(icon, savedTheme);
 
     themeToggle.addEventListener('click', () => {
-        const currentTheme = document.documentElement.getAttribute('data-theme');
-        const newTheme = currentTheme === 'light' ? 'dark' : 'light';
+        const isDark = body.classList.toggle('dark-mode');
+        const newTheme = isDark ? 'dark' : 'light';
         
-        document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(icon, newTheme);
     });
 }
 
 function updateThemeIcon(icon, theme) {
-    icon.className = theme === 'light' ? 'fas fa-moon' : 'fas fa-sun';
-}
-
-// Obsługa języka
-function initLanguageToggle() {
-    const langToggle = document.getElementById('language-toggle');
-    let currentLang = localStorage.getItem('lang') || 'pl';
-
-    langToggle.addEventListener('click', () => {
-        currentLang = currentLang === 'pl' ? 'en' : 'pl';
-        localStorage.setItem('lang', currentLang);
-        updateContent(currentLang);
-    });
+    if (theme === 'dark') {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
 }
 
 // Ładowanie projektów z GitHub
 async function loadProjects() {
     try {
-        const response = await fetch('https://api.github.com/users/norbertflas/repos');
-        const projects = await response.json();
+        const username = 'norbertflas'; // Zamień na swoją nazwę użytkownika GitHub
+        const response = await fetch(`https://api.github.com/users/${username}/repos`);
         
+        if (!response.ok) {
+            throw new Error('Nie udało się pobrać projektów');
+        }
+        
+        const projects = await response.json();
         const projectsGrid = document.querySelector('#projects .grid');
+        
+        if (!projectsGrid) {
+            console.error('Nie znaleziono kontenera na projekty');
+            return;
+        }
+
         projectsGrid.innerHTML = ''; // Wyczyść istniejące projekty
 
         projects.forEach(project => {
@@ -122,6 +126,15 @@ async function loadProjects() {
         });
     } catch (error) {
         console.error('Błąd ładowania projektów:', error);
+        const projectsGrid = document.querySelector('#projects .grid');
+        if (projectsGrid) {
+            projectsGrid.innerHTML = `
+                <div class="col-span-full text-center text-white">
+                    <p class="text-xl">Nie udało się załadować projektów</p>
+                    <p class="text-sm">Spróbuj odświeżyć stronę</p>
+                </div>
+            `;
+        }
     }
 }
 
@@ -129,15 +142,34 @@ function createProjectCard(project) {
     const card = document.createElement('div');
     card.className = 'card p-6 animate-fadeInUp';
     
+    // Filtruj puste lub null wartości
+    const description = project.description || 'Brak opisu';
+    const topics = project.topics || [];
+    
     card.innerHTML = `
         <h3 class="text-xl font-bold mb-2">${project.name}</h3>
-        <p class="text-gray-300 mb-4">${project.description || 'Brak opisu'}</p>
+        <p class="text-gray-300 mb-4">${description}</p>
+        ${topics.length > 0 ? `
+            <div class="flex flex-wrap gap-2 mb-4">
+                ${topics.map(topic => `
+                    <span class="px-2 py-1 bg-primary/20 rounded-full text-sm">
+                        ${topic}
+                    </span>
+                `).join('')}
+            </div>
+        ` : ''}
         <div class="flex gap-4">
-            <a href="${project.html_url}" target="_blank" class="btn btn-primary">
+            <a href="${project.html_url}" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="btn btn-primary">
                 <i class="fab fa-github mr-2"></i>GitHub
             </a>
             ${project.homepage ? `
-                <a href="${project.homepage}" target="_blank" class="btn btn-secondary">
+                <a href="${project.homepage}" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="btn btn-secondary">
                     <i class="fas fa-external-link-alt mr-2"></i>Demo
                 </a>
             ` : ''}
