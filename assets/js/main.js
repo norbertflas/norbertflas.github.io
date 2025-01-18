@@ -63,42 +63,113 @@ window.useLanguage = useLanguage;
 
 // Inicjalizacja strony
 document.addEventListener('DOMContentLoaded', () => {
-    initThemeToggle();
-    loadProjects();
-    initAnimations();
-    initContactForm();
-    initSmoothScroll();
-});
+    const translations = {
+        pl: {
+            // Development & AI
+            'skills.dev.title': 'Development & AI',
+            // AI & Blockchain
+            'skills.ai.title': 'AI & Blockchain',
+            // E-commerce & Marketing
+            'skills.ecommerce.title': 'E-commerce & Marketing',
+            // Tools & Automation
+            'skills.tools.title': 'Tools & Automation',
+            // Soft Skills
+            'skills.soft.title': 'Umiejętności Miękkie',
+            'skills.soft.creativity': 'Kreatywność',
+            'skills.soft.teamwork': 'Praca zespołowa',
+            'skills.soft.independence': 'Samodzielność',
+            'skills.soft.proactivity': 'Proaktywność',
+            'skills.soft.communication': 'Komunikacja',
+            'skills.soft.diligence': 'Skrupulatność',
+            'skills.soft.management': 'Zarządzanie',
+            'skills.soft.english': 'Angielski (B2)',
+            // Nagłówki
+            'header.title': 'AI & E-commerce Ekspert',
+            'header.subtitle': 'Łączę sztuczną inteligencję z sukcesem w e-commerce',
+            // Menu
+            'nav.home': 'Strona główna',
+            'nav.about': 'O mnie',
+            'nav.skills': 'Umiejętności',
+            'nav.projects': 'Projekty',
+            'nav.contact': 'Kontakt'
+        },
+        en: {
+            // Development & AI
+            'skills.dev.title': 'Development & AI',
+            // AI & Blockchain
+            'skills.ai.title': 'AI & Blockchain',
+            // E-commerce & Marketing
+            'skills.ecommerce.title': 'E-commerce & Marketing',
+            // Tools & Automation
+            'skills.tools.title': 'Tools & Automation',
+            // Soft Skills
+            'skills.soft.title': 'Soft Skills',
+            'skills.soft.creativity': 'Creativity',
+            'skills.soft.teamwork': 'Team Work',
+            'skills.soft.independence': 'Independence',
+            'skills.soft.proactivity': 'Proactivity',
+            'skills.soft.communication': 'Communication',
+            'skills.soft.diligence': 'Diligence',
+            'skills.soft.management': 'Management',
+            'skills.soft.english': 'English (B2)',
+            // Headers
+            'header.title': 'AI & E-commerce Expert',
+            'header.subtitle': 'Combining AI with e-commerce success',
+            // Menu
+            'nav.home': 'Home',
+            'nav.about': 'About',
+            'nav.skills': 'Skills',
+            'nav.projects': 'Projects',
+            'nav.contact': 'Contact'
+        }
+    };
 
-// Obsługa trybu ciemnego
-function initThemeToggle() {
+    // Theme handling
     const themeToggle = document.getElementById('theme-toggle');
-    const icon = themeToggle.querySelector('i');
-    const body = document.body;
-    
-    // Sprawdź zapisany motyw
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    body.classList.toggle('dark-mode', savedTheme === 'dark');
-    updateThemeIcon(icon, savedTheme);
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const currentTheme = localStorage.getItem('theme') || (prefersDark.matches ? 'dark' : 'light');
+
+    function setTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        localStorage.setItem('theme', theme);
+        const icon = themeToggle.querySelector('i');
+        icon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+
+    setTheme(currentTheme);
 
     themeToggle.addEventListener('click', () => {
-        const isDark = body.classList.toggle('dark-mode');
-        const newTheme = isDark ? 'dark' : 'light';
-        
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(icon, newTheme);
+        const newTheme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        setTheme(newTheme);
     });
-}
 
-function updateThemeIcon(icon, theme) {
-    if (theme === 'dark') {
-        icon.classList.remove('fa-moon');
-        icon.classList.add('fa-sun');
-    } else {
-        icon.classList.remove('fa-sun');
-        icon.classList.add('fa-moon');
+    // Language handling
+    const langToggle = document.getElementById('language-toggle');
+    let currentLang = localStorage.getItem('lang') || 'pl';
+
+    function setLanguage(lang) {
+        document.documentElement.setAttribute('lang', lang);
+        localStorage.setItem('lang', lang);
+        updateContent(lang);
     }
-}
+
+    function updateContent(lang) {
+        document.querySelectorAll('[data-translate]').forEach(element => {
+            const key = element.getAttribute('data-translate');
+            if (translations[lang][key]) {
+                element.textContent = translations[lang][key];
+            }
+        });
+    }
+
+    langToggle.addEventListener('click', () => {
+        currentLang = currentLang === 'pl' ? 'en' : 'pl';
+        setLanguage(currentLang);
+    });
+
+    // Initial language setup
+    setLanguage(currentLang);
+});
 
 // Ładowanie projektów z GitHub
 async function loadProjects() {

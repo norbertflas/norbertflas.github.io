@@ -7,13 +7,17 @@
   --text: #1f2937;
   --card-bg: rgba(255, 255, 255, 0.1);
   --transition: all 0.3s ease;
+  --bg-primary: #ffffff;
+  --text-primary: #000000;
 }
 
 /* Dark mode variables */
 [data-theme="dark"] {
   --background: #0f172a;
   --text: #ffffff;
-  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-bg: rgba(0, 0, 0, 0.2);
+  --bg-primary: #0f172a;
+  --text-primary: #ffffff;
 }
 
 * {
@@ -185,34 +189,56 @@ body.dark-mode {
 } 
 
 /* Skill styles */
-.skills-grid {
-    display: grid;
-    gap: 1.5rem;
-}
-
-.skill-category {
-    background: rgba(255, 255, 255, 0.05);
-    padding: 1rem;
-    border-radius: 0.5rem;
-}
-
-.skill-tag {
+.skill-pill {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: rgba(37, 99, 235, 0.2);
+    padding: 0.75rem 1.5rem;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(4px);
     border-radius: 9999px;
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: white;
     transition: all 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-.skill-tag:hover {
-    background: rgba(37, 99, 235, 0.3);
+.skill-pill:hover {
+    background: rgba(255, 255, 255, 0.2);
     transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-@media (min-width: 768px) {
-    .skills-grid {
-        grid-template-columns: repeat(2, 1fr);
+/* Category headers */
+h3.text-2xl {
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+h3.text-2xl::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 4px;
+    height: 24px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .skill-pill {
+        padding: 0.5rem 1rem;
+        font-size: 0.875rem;
     }
+} 
+
+/* Skill pill dark mode styles */
+[data-theme="dark"] .skill-pill {
+    background: var(--card-bg);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="dark"] .skill-pill:hover {
+    background: rgba(255, 255, 255, 0.15);
 } 
